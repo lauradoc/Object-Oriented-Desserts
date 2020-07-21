@@ -1,7 +1,8 @@
 """Dessert classes."""
 
+class Dessert:
 
-class Cupcake:
+class Cupcake(Dessert):
     """A cupcake."""
     cache = {}
 
@@ -43,6 +44,23 @@ class Cupcake:
         ingredients_scaled.append(ingredient_tuple)
 
       return ingredients_scaled
+
+
+    @classmethod
+    def get(cls, name):
+
+      if name in cls.cache:
+        return cls.cache.get(name)
+
+      else:
+        print("Sorry, that cupcake doesn't exist")
+
+class Brownie(Dessert):
+  """A Brownie"""
+
+  def __init__(self, name, price):
+    super().__init__(name, 'chocolate', price)
+
 
 if __name__ == '__main__':
     import doctest
